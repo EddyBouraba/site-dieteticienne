@@ -107,8 +107,13 @@ if (isProduction) {
   // Servir les fichiers statiques
   app.use(express.static(distPath));
 
-  // Pour toutes les autres routes, renvoyer index.html (SPA)
-  app.get('/{*splat}', (_req, res) => {
+  // Fallback SPA : renvoyer index.html pour les routes non-API et non-fichiers
+  app.use((req, res, next) => {
+    // Si c'est une route API, passer au handler suivant (404)
+    if (req.path.startsWith('/api')) {
+      return next();
+    }
+    // Sinon, servir index.html pour le routing côté client
     res.sendFile(path.join(distPath, 'index.html'));
   });
 } else {
