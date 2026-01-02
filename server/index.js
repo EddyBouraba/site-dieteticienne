@@ -51,19 +51,19 @@ app.use(cors({
   credentials: true
 }));
 
-// Rate limiting - protection contre les attaques par force brute
-const limiter = rateLimit({
+// Rate limiting - uniquement sur les routes API
+const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 25, // limite chaque IP à 25 requêtes par fenêtre
+  max: 100, // limite chaque IP à 100 requêtes API par fenêtre
   message: { error: 'Trop de requêtes, veuillez réessayer plus tard.' },
   skip: (req) => req.method === 'OPTIONS', // Ne pas limiter les preflight CORS
-  skipSuccessfulRequests: false // Compter toutes les requêtes
 });
 
-app.use(limiter);
+// Appliquer le rate limiting uniquement aux routes API
+app.use('/api', apiLimiter);
 
 // Exporter le limiter pour pouvoir reset après login réussi
-export { limiter };
+export { apiLimiter as limiter };
 
 // Body parser
 app.use(express.json());
