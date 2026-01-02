@@ -24,15 +24,14 @@ dist-ssr
 *.sln
 *.sw?
 
-# Environment variables - IMPORTANT: ne jamais commiter ces fichiers !
+# Environment variables
 .env
 .env.local
 .env.production
 .env.*.local
 
-# Server data files - contiennent des données sensibles
-server/data/admin.json
-server/data/posts.json
-
 # Build output
 build/
+
+# TinaCMS
+.tina/__generated__

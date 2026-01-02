@@ -7,14 +7,4 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: FRONTEND_URL
-        value: https://paulinerolland-dieteticienne.onrender.com
-      - key: JWT_SECRET
-        generateValue: true
-      - key: CSRF_SECRET
-        generateValue: true
-      - key: ADMIN_USERNAME
-        value: admin
-      - key: ADMIN_INITIAL_PASSWORD
-        sync: false  # À configurer manuellement dans Render
     healthCheckPath: /api/health
