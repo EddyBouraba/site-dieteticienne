@@ -108,7 +108,7 @@ if (isProduction) {
   app.use(express.static(distPath));
 
   // Pour toutes les autres routes, renvoyer index.html (SPA)
-  app.get('*', (_req, res) => {
+  app.get('/{*splat}', (_req, res) => {
     res.sendFile(path.join(distPath, 'index.html'));
   });
 } else {
