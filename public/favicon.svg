@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Favicon représentant une feuille verte (symbolisant la nutrition/santé naturelle) -->
+  <circle cx="50" cy="50" r="45" fill="#7c9082"/>
+  <path d="M50 20 C30 35 25 55 35 70 C40 77 47 80 50 80 C53 80 60 77 65 70 C75 55 70 35 50 20" fill="#ffffff" opacity="0.9"/>
+  <path d="M50 25 L50 70" stroke="#7c9082" stroke-width="2" fill="none"/>
+  <path d="M40 40 Q50 50 45 60" stroke="#7c9082" stroke-width="1.5" fill="none"/>
+  <path d="M60 40 Q50 50 55 60" stroke="#7c9082" stroke-width="1.5" fill="none"/>
+</svg>

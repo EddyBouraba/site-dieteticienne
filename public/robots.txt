@@ -1,0 +1,11 @@
+# Robots.txt pour le site de Pauline Rolland - Diététicienne à Dijon
+# https://pauline-rolland-dieteticienne.fr
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://pauline-rolland-dieteticienne.fr/sitemap.xml
+
+# Désactiver l'indexation des fichiers statiques techniques
+Disallow: /assets/
