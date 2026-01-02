@@ -36,7 +36,7 @@ app.use(helmet({
 
 // CORS configuration
 const allowedOrigins = isProduction
-  ? [process.env.FRONTEND_URL, 'https://eddybouraba.com', 'https://www.eddybouraba.com']
+  ? [process.env.FRONTEND_URL, 'https://paulinerolland-dieteticienne.onrender.com']
   : ['http://localhost:5173', 'http://localhost:3001'];
 
 app.use(cors({
