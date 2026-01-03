@@ -18,11 +18,11 @@ app.use(helmet({
   contentSecurityPolicy: isProduction ? {
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
-      imgSrc: ["'self'", "data:", "https:"],
-      connectSrc: ["'self'", "https://www.doctolib.fr"],
+      imgSrc: ["'self'", "data:", "https:", "blob:"],
+      connectSrc: ["'self'", "https://www.doctolib.fr", "https://content.tinajs.io", "https://identity.tinajs.io"],
       frameSrc: ["'self'", "https://www.doctolib.fr"],
     }
   } : false
@@ -41,8 +41,9 @@ if (isProduction) {
   app.use(express.static(distPath));
 
   // Fallback SPA : renvoyer index.html pour les routes non-API
+  // Exclure /admin qui a son propre index.html (TinaCMS)
   app.use((req, res, next) => {
-    if (req.path.startsWith('/api')) {
+    if (req.path.startsWith('/api') || req.path.startsWith('/admin')) {
       return next();
     }
     res.sendFile(path.join(distPath, 'index.html'));
