@@ -13,20 +13,32 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const isProduction = process.env.NODE_ENV === 'production';
 
-// Security headers
-app.use(helmet({
-  contentSecurityPolicy: isProduction ? {
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com"],
-      imgSrc: ["'self'", "data:", "https:", "blob:"],
-      connectSrc: ["'self'", "https://www.doctolib.fr", "https://content.tinajs.io", "https://identity.tinajs.io"],
-      frameSrc: ["'self'", "https://www.doctolib.fr"],
-    }
-  } : false
-}));
+// Security headers - désactivé pour /admin (TinaCMS)
+app.use((req, res, next) => {
+  // Pas de CSP pour TinaCMS admin
+  if (req.path.startsWith('/admin')) {
+    return next();
+  }
+
+  // CSP pour le reste du site en production
+  if (isProduction) {
+    helmet({
+      contentSecurityPolicy: {
+        directives: {
+          defaultSrc: ["'self'"],
+          scriptSrc: ["'self'", "'unsafe-inline'"],
+          styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+          fontSrc: ["'self'", "https://fonts.gstatic.com"],
+          imgSrc: ["'self'", "data:", "https:", "blob:"],
+          connectSrc: ["'self'", "https://www.doctolib.fr"],
+          frameSrc: ["'self'", "https://www.doctolib.fr"],
+        }
+      }
+    })(req, res, next);
+  } else {
+    next();
+  }
+});
 
 // Health check
 app.get('/api/health', (_req, res) => {
