@@ -1,154 +1,32 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Administration - Pauline Rolland Diététicienne</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #faf8f5 0%, #f0ebe3 100%);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .container {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-      padding: 48px;
-      max-width: 500px;
-      width: 100%;
-      text-align: center;
-    }
-    .logo {
-      font-size: 48px;
-      margin-bottom: 16px;
-    }
-    h1 {
-      color: #7c9082;
-      font-size: 24px;
-      margin-bottom: 8px;
-    }
-    .subtitle {
-      color: #636e72;
-      margin-bottom: 32px;
-    }
-    .steps {
-      text-align: left;
-      margin-bottom: 32px;
-    }
-    .step {
-      background: #faf8f5;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 16px;
-      border-left: 4px solid #7c9082;
-    }
-    .step-number {
-      background: #7c9082;
-      color: white;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 14px;
-      margin-right: 12px;
-    }
-    .step-title {
-      font-weight: 600;
-      color: #2d3436;
-      margin-bottom: 8px;
-    }
-    .step-desc {
-      color: #636e72;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    .step-desc a {
-      color: #7c9082;
-      font-weight: 500;
-    }
-    .btn {
-      display: inline-block;
-      background: #7c9082;
-      color: white;
-      padding: 14px 32px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background 0.2s;
-    }
-    .btn:hover {
-      background: #6a7d70;
-    }
-    .alt-method {
-      margin-top: 32px;
-      padding-top: 24px;
-      border-top: 1px solid #e0e0e0;
-    }
-    .alt-method h3 {
-      color: #2d3436;
-      font-size: 16px;
-      margin-bottom: 12px;
-    }
-    .alt-method p {
-      color: #636e72;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    code {
-      background: #2d3436;
-      color: #a8e6cf;
-      padding: 8px 16px;
-      border-radius: 6px;
-      display: block;
-      margin-top: 12px;
-      font-size: 13px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="logo">🌿</div>
-    <h1>Administration du Blog</h1>
-    <p class="subtitle">Pauline Rolland - Diététicienne</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TinaCMS</title>
+  </head>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-title"><span class="step-number">1</span>Créez votre compte TinaCMS</div>
-        <p class="step-desc">Rendez-vous sur <a href="https://tina.io" target="_blank">tina.io</a> et créez un compte gratuit avec votre email.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-title"><span class="step-number">2</span>Connectez votre projet</div>
-        <p class="step-desc">Suivez les <a href="https://tina.io/docs/tina-cloud/" target="_blank">instructions</a> pour lier votre dépôt GitHub au tableau de bord Tina.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-title"><span class="step-number">3</span>Accédez à l'éditeur</div>
-        <p class="step-desc">Une fois configuré, vous pourrez éditer vos articles directement depuis cette interface.</p>
-      </div>
-    </div>
-
-    <a href="https://tina.io" class="btn" target="_blank">Configurer TinaCMS →</a>
-
-    <div class="alt-method">
-      <h3>💡 Alternative simple</h3>
-      <p>Vous pouvez aussi modifier directement les fichiers Markdown dans le dossier :</p>
-      <code>content/blog/</code>
-      <p style="margin-top: 12px;">Chaque fichier .md correspond à un article du blog.</p>
-    </div>
-  </div>
-</body>
+  <!-- if development -->
+  <script type="module">
+    import RefreshRuntime from 'http://localhost:4001/@react-refresh'
+    RefreshRuntime.injectIntoGlobalHook(window)
+    window.$RefreshReg$ = () => {}
+    window.$RefreshSig$ = () => (type) => type
+    window.__vite_plugin_react_preamble_installed__ = true
+  </script>
+  <script type="module" src="http://localhost:4001/@vite/client"></script>
+  <script>
+  function handleLoadError() {
+    // Assets have failed to load
+    document.getElementById('root').innerHTML = '<style type="text/css"> #no-assets-placeholder body { font-family: sans-serif; font-size: 16px; line-height: 1.4; color: #333; background-color: #f5f5f5; } #no-assets-placeholder { max-width: 600px; margin: 0 auto; padding: 40px; text-align: center; background-color: #fff; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); } #no-assets-placeholder h1 { font-size: 24px; margin-bottom: 20px; } #no-assets-placeholder p { margin-bottom: 10px; } #no-assets-placeholder a { color: #0077cc; text-decoration: none; } #no-assets-placeholder a:hover { text-decoration: underline; } </style> <div id="no-assets-placeholder"> <h1>Failed loading TinaCMS assets</h1> <p> Your TinaCMS configuration may be misconfigured, and we could not load the assets for this page. </p> <p> Please visit <a href="https://tina.io/docs/r/FAQ/#13-how-do-i-resolve-failed-loading-tinacms-assets-error">this doc</a> for help. </p> </div> </div>';
+  }
+  </script>
+  <script
+    type="module"
+    src="http://localhost:4001/src/main.tsx"
+    onerror="handleLoadError()"
+  ></script>
+  <body class="tina-tailwind">
+    <div id="root"></div>
+  </body>
 </html>
