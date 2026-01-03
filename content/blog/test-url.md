@@ -1,5 +1,5 @@
 ---
-title: TEST TITRE
+title: TEST TITRE COLLAB
 slug: TEST URL
 excerpt: TEST EXTRAIT
 category: Conseils pratiques
