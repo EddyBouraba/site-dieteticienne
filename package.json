@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "tinacms dev -c \"vite\"",
     "dev:server": "node server/index.js",
     "dev:all": "concurrently \"npm:dev:server\" \"npm:dev\"",
-    "build": "vite build",
+    "build": "tinacms build && vite build",
     "build:render": "npm install && npm run build",
     "lint": "eslint .",
     "preview": "vite preview",
