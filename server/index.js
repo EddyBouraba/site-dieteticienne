@@ -30,7 +30,7 @@ app.use((req, res, next) => {
           styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
           fontSrc: ["'self'", "https://fonts.gstatic.com"],
           imgSrc: ["'self'", "data:", "https:", "blob:"],
-          connectSrc: ["'self'", "https://www.doctolib.fr"],
+          connectSrc: ["'self'", "https://www.doctolib.fr", "https://formspree.io"],
           frameSrc: ["'self'", "https://www.doctolib.fr"],
         }
       }
