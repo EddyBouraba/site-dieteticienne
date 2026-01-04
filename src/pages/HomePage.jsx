@@ -32,7 +32,7 @@ const HomePage = () => {
         <Services />
 
         {/* Section 6 : Apercu du blog */}
-        <BlogPreview />
+        {/*<BlogPreview />*/}
 
         {/* Section 7 : Prise de rendez-vous */}
         <Appointment />

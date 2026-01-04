@@ -33,7 +33,6 @@ const Header = () => {
       label: "Consultations",
       isAnchor: true,
     },
-    { href: "/blog", label: "Blog", isAnchor: false },
     {
       href: isHomePage ? "#contact" : "/#contact",
       label: "Contact",
