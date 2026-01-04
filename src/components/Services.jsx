@@ -27,10 +27,17 @@ const Services = () => {
             Des consultations adaptees a vos besoins pour un accompagnement
             nutritionnel personnalise
           </p>
+          <p className="text-sm text-[#7c9082] mt-3 font-medium">
+            Consultations susceptibles d’être prises en charge par votre
+            mutuelle
+          </p>
           <div className="w-20 h-1 bg-[#7c9082] mx-auto mt-6 rounded-full"></div>
         </div>
 
-        <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <div
+          ref={cardsRef}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8"
+        >
           {siteConfig.pricing.map((service, index) => (
             <div
               key={index}
@@ -51,19 +58,19 @@ const Services = () => {
                 </span>
               )}
               <h3 className="text-lg font-semibold text-[#2d3436] mb-2">
-                  {service.name}
-                </h3>
-                <p className="text-[#636e72] text-sm mb-4 flex-grow">
-                  {service.description}
-                </p>
-                <div className="flex items-end justify-between mt-auto">
-                  <span className="text-3xl font-bold gradient-text-animated">
-                    {service.price}€
-                  </span>
-                  <span className="text-sm text-[#636e72]">
-                    {service.duration}
-                  </span>
-                </div>
+                {service.name}
+              </h3>
+              <p className="text-[#636e72] text-sm mb-4 flex-grow">
+                {service.description}
+              </p>
+              <div className="flex items-end justify-between mt-auto">
+                <span className="text-3xl font-bold gradient-text-animated">
+                  {service.price}€
+                </span>
+                <span className="text-sm text-[#636e72]">
+                  {service.duration}
+                </span>
+              </div>
             </div>
           ))}
         </div>
