@@ -49,11 +49,20 @@ const SEO = () => {
     updateMeta('og:url', siteConfig.seo.siteUrl, true);
     updateMeta('og:locale', 'fr_FR', true);
     updateMeta('og:site_name', `${siteConfig.professional.fullName} - ${siteConfig.professional.title}`, true);
+    if (siteConfig.seo.ogImage) {
+      updateMeta('og:image', `${siteConfig.seo.siteUrl}${siteConfig.seo.ogImage}`, true);
+      updateMeta('og:image:width', '1200', true);
+      updateMeta('og:image:height', '630', true);
+      updateMeta('og:image:alt', `${siteConfig.professional.fullName} - ${siteConfig.professional.title}`, true);
+    }
 
     // Twitter Card
     updateMeta('twitter:card', 'summary_large_image');
     updateMeta('twitter:title', siteConfig.seo.title);
     updateMeta('twitter:description', siteConfig.seo.description);
+    if (siteConfig.seo.ogImage) {
+      updateMeta('twitter:image', `${siteConfig.seo.siteUrl}${siteConfig.seo.ogImage}`);
+    }
 
     // Canonical URL
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -81,11 +90,20 @@ const SEO = () => {
         "url": siteConfig.seo.siteUrl,
         "telephone": siteConfig.contact.phone || undefined,
         "email": siteConfig.contact.email || undefined,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${siteConfig.seo.siteUrl}/favicon.svg`,
+          "width": 512,
+          "height": 512
+        },
+        "image": siteConfig.seo.ogImage ? `${siteConfig.seo.siteUrl}${siteConfig.seo.ogImage}` : undefined,
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": siteConfig.location.address,
           "addressLocality": siteConfig.location.city,
           "addressRegion": siteConfig.location.region,
-          "addressCountry": "FR"
+          "addressCountry": "FR",
+          "postalCode": "21000"
         },
         "geo": {
           "@type": "GeoCoordinates",
@@ -116,7 +134,32 @@ const SEO = () => {
         }),
         "priceRange": "€€",
         "currenciesAccepted": "EUR",
-        "paymentAccepted": "Cash, Card"
+        "paymentAccepted": "Cash, Card",
+        // Avis et notes agrégées pour les résultats enrichis
+        ...(siteConfig.testimonials && siteConfig.testimonials.length > 0 && {
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": (siteConfig.testimonials.reduce((sum, t) => sum + t.rating, 0) / siteConfig.testimonials.length).toFixed(1),
+            "reviewCount": siteConfig.testimonials.length,
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "review": siteConfig.testimonials.map((testimonial) => ({
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": testimonial.name
+            },
+            "datePublished": testimonial.date || new Date().toISOString(),
+            "reviewBody": testimonial.text,
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": testimonial.rating,
+              "bestRating": "5",
+              "worstRating": "1"
+            }
+          }))
+        })
       },
       // Professionnel de santé
       {
