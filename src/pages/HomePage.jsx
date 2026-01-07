@@ -5,6 +5,7 @@ import Cabinet from "../components/Cabinet";
 import Testimonials from "../components/Testimonials";
 import { BlogPreview } from "../components/blog";
 import Appointment from "../components/Appointment";
+import Entreprise from "../components/Entreprise";
 import Contact from "../components/Contact";
 import SEO from "../components/SEO";
 
@@ -28,8 +29,11 @@ const HomePage = () => {
         {/* Section 4 : Photos du cabinet */}
         <Cabinet />
 
+        
+
         {/* Section 5 : Temoignages clients */}
         <Services />
+        <Entreprise />
 
         {/* Section 6 : Apercu du blog */}
         {/*<BlogPreview />*/}
@@ -37,7 +41,7 @@ const HomePage = () => {
         {/* Section 7 : Prise de rendez-vous */}
         <Appointment />
 
-        {/* Section 8 : Contact et localisation */}
+        {/* Section 9 : Contact et localisation */}
         <Contact />
       </main>
     </>
